@@ -152,15 +152,16 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Dance Motions from YouTube</h2>
+        <h3 style="text-align: center;">🔈: Hover over the video to unmute.</h3> <br>
           <td>
             <div class="row">
               <div class="col">
-                  <video autoplay muted loop playsinline controls src="./resources/clips/uptown-overlay.mp4" width="100%"
+                  <video id="uptownVideo" autoplay muted loop playsinline controls src="./resources/clips/uptown-overlay.mp4" width="100%"
                          style="border-radius:10px; "></video>
                   <h4 style="text-align: center;"><a href="https//youtu.be/-u_MdAfUToQ?si=WdxvnxoK1Z_TjEv2">Uptown Funk</a></h4>
               </div>
               <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/clips/hiphop-overlay.mp4" width="100%"
+                <video id="hiphopVideo" autoplay muted loop playsinline controls src="./resources/clips/hiphop-overlay.mp4" width="100%"
                        style="border-radius:10px; "></video>
                 <h4 style="text-align: center;"><a href="https://youtu.be/V5IBmCP9SOI?si=aIjAkLkm6_JTXRap">Hiphop</a> </h4>
               </div>
@@ -172,7 +173,28 @@
     </div>
   </div>
 </section>
+<script>
+  function toggleMuteAndPlay(videoElement) {
+    videoElement.muted = !videoElement.muted;
+  }
 
+  const uptownVideo = document.getElementById('uptownVideo');
+  const hiphopVideo = document.getElementById('hiphopVideo');
+
+  uptownVideo.addEventListener('mouseenter', function () {
+    toggleMuteAndPlay(this);
+  });
+  uptownVideo.addEventListener('mouseleave', function () {
+    this.muted = true; // Re-mute on mouse leave
+  });
+
+  hiphopVideo.addEventListener('mouseenter', function () {
+    toggleMuteAndPlay(this);
+  });
+  hiphopVideo.addEventListener('mouseleave', function () {
+    this.muted = true; // Re-mute on mouse leave
+  });
+</script>
 <section class="section">
 
   <div class="container">
